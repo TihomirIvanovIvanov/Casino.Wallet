@@ -1,35 +1,59 @@
-﻿using Casino.Wallet.Core.Contracts;
-using Casino.Wallet.Core.Models;
+﻿using Casino.Wallet.Common;
+using Casino.Wallet.Core.Contracts;
+using Casino.Wallet.Data.Enums;
+using Casino.Wallet.Data.Models;
+using Casino.Wallet.Data.Repositories;
 
 namespace Casino.Wallet.Core.Services
 {
     public class WalletService : IWalletService
     {
-        private readonly Player wallet;
+        private readonly TransactionRepository transactionRepository;
+        private readonly Data.Models.Wallet wallet;
 
-        public WalletService()
+        public WalletService(TransactionRepository transactionRepository, Player player)
         {
-            this.wallet = new Player();
+            this.transactionRepository = transactionRepository;
+            this.wallet = new Data.Models.Wallet(player);
         }
 
-        public void Deposit(decimal amount)
+        public void Deposit(decimal amount, int walletId, TransactionReason transactionReason)
         {
-            this.wallet.Deposit(amount);
+            if (amount <= 0) Console.WriteLine(GlobalConstants.NegativeDepositAmountMsg);
+
+            var transaction = new Transaction(amount, walletId, TransactionType.Deposit, transactionReason);
+            this.transactionRepository.CreateTransaction(transaction);
+            this.wallet.UpdateBalance(amount);
+            Console.WriteLine($"Your deposit of ${amount:F2} was successful. {GlobalConstants.CurrentBalanceMsg} ${this.wallet.GetBalance():F2}");
         }
 
-        public bool Withdraw(decimal amount)
+        public void Withdraw(decimal amount, int walletId, TransactionReason transactionReason)
         {
-            return this.wallet.Withdraw(amount);
+            if (amount <= 0)
+            {
+                Console.WriteLine(GlobalConstants.NegativeWithdrawAmountMsg);
+            }
+            if (this.wallet.Player.Balance >= amount)
+            {
+                var transaction = new Transaction(amount, walletId, TransactionType.Withdraw, transactionReason);
+                this.transactionRepository.CreateTransaction(transaction);
+                this.wallet.UpdateBalance(-amount);
+                Console.WriteLine($"Your withdrawal of ${amount:F2} was successful! {GlobalConstants.CurrentBalanceMsg} ${this.wallet.GetBalance():F2}");
+            }
+            else
+            {
+                Console.WriteLine($"{GlobalConstants.InsufficientFundsMsg} {GlobalConstants.CurrentBalanceMsg} ${this.wallet.GetBalance():F2}");
+            }
         }
 
-        public void ApplyGameResult(GameResult result)
+        public void Bet(decimal amount, int walletId, TransactionReason transactionReason)
         {
-            this.wallet.ApplyGameResult(result);
+            this.Withdraw(amount, walletId, transactionReason);
         }
 
-        public decimal GetBalance()
+        public void Win(decimal amount, int walletId, TransactionReason transactionReason)
         {
-            return this.wallet.Balance;
+            this.Deposit(amount, walletId, transactionReason);
         }
     }
 }

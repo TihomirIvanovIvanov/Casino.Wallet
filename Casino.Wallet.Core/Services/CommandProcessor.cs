@@ -1,4 +1,5 @@
-﻿using Casino.Wallet.Core.Contracts;
+﻿using Casino.Wallet.Common;
+using Casino.Wallet.Core.Contracts;
 
 namespace Casino.Wallet.Core.Services
 {
@@ -19,7 +20,15 @@ namespace Casino.Wallet.Core.Services
             }
             else
             {
-                Console.WriteLine("Unknown command.");
+                if (command == "exit")
+                {
+                    Console.WriteLine(GlobalConstants.GoodbyeMsg);
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine(GlobalConstants.UnknownCmd);
+                }
             }
         }
     }

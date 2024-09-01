@@ -1,9 +1,0 @@
-{
-  "GameRules": {
-    "MinBet": 1,
-    "MaxBet": 10,
-    "LoseChance": 50,
-    "WinDoubleChance": 40,
-    "WinHighMultiplierChance": 10
-  }
-}

@@ -1,15 +1,15 @@
-﻿using Casino.Wallet.Core.Models;
+﻿using Casino.Wallet.Data.Enums;
 
 namespace Casino.Wallet.Core.Contracts
 {
     public interface IWalletService
     {
-        void Deposit(decimal amount);
+        void Deposit(decimal amount, int walletId, TransactionReason transactionReason);
 
-        bool Withdraw(decimal amount);
+        void Withdraw(decimal amount, int walletId, TransactionReason transactionReason);
 
-        void ApplyGameResult(GameResult result);
+        void Bet(decimal amount, int walletId, TransactionReason transactionReason);
 
-        decimal GetBalance();
+        void Win(decimal amount, int walletId, TransactionReason transactionReason);
     }
 }

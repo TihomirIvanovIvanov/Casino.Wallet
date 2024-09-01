@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Casino.Wallet.Common\Casino.Wallet.Common.csproj" />
-    <ProjectReference Include="..\Casino.Wallet.Data\Casino.Wallet.Data.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,31 +1,31 @@
-﻿using Casino.Wallet.Commands;
-using Casino.Wallet.Common.Utilities;
+﻿using Casino.Wallet.App.Commands;
 using Casino.Wallet.Core.Contracts;
 using Casino.Wallet.Core.Services;
+using Casino.Wallet.Data.Models;
+using Casino.Wallet.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Casino.Wallet
+namespace Casino.Wallet.App
 {
     public class ServiceRegistration
     {
-        public ServiceProvider ConfigureServices()
+        public static ServiceProvider ConfigureServices()
         {
             return new ServiceCollection()
+                .AddScoped<Player>()
+                .AddTransient<TransactionRepository>()
                 .AddTransient<IWalletService, WalletService>()
-                .AddTransient<IGameService, GameService>()
-                .AddTransient<IRandomNumberGenerator, RandomNumberGenerator>()
+                .AddTransient<IBetService, BetService>()
                 .AddTransient<CommandProcessor>()
                 .AddTransient<DepositCommand>()
                 .AddTransient<WithdrawCommand>()
                 .AddTransient<BetCommand>()
-                .AddTransient<ExitCommand>()
                 .AddTransient(provider => new CommandProcessor(
                     new Dictionary<string, ICommand>
                     {
                         { "deposit", provider.GetService<DepositCommand>() },
                         { "withdraw", provider.GetService<WithdrawCommand>() },
                         { "bet", provider.GetService<BetCommand>() },
-                        { "exit", provider.GetService<ExitCommand>() }
                     }))
                 .BuildServiceProvider();
         }

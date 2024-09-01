@@ -1,7 +1,7 @@
 ﻿using Casino.Wallet.Core.Contracts;
-using System;
+using Casino.Wallet.Data.Enums;
 
-namespace Casino.Wallet.Commands
+namespace Casino.Wallet.App.Commands
 {
     public class DepositCommand : ICommand
     {
@@ -14,8 +14,7 @@ namespace Casino.Wallet.Commands
 
         public void Execute(decimal amount)
         {
-            this.walletService.Deposit(amount);
-            Console.WriteLine($"Your deposit of ${amount:F2} was successful. Your current balance is: ${this.walletService.GetBalance():F2}");
+            this.walletService.Deposit(amount, 1, TransactionReason.Deposit);
         }
     }
 }

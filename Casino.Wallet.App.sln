@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casino.Wallet", "Casino.Wallet\Casino.Wallet.csproj", "{3A354EC2-03BF-4C26-9927-DC8933411F17}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casino.Wallet.Common", "Casino.Wallet.Common\Casino.Wallet.Common.csproj", "{BA33C988-B579-48CB-A95F-56CDF0A8C7B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casino.Wallet.Tests", "Casino.Wallet.Tests\Casino.Wallet.Tests.csproj", "{86C9DA5A-C764-43CD-9303-6BC12226ADD4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casino.Wallet.Core", "Casino.Wallet.Core\Casino.Wallet.Core.csproj", "{6EAD0504-167B-4008-AB08-E276A56D26A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casino.Wallet.Data", "Casino.Wallet.Data\Casino.Wallet.Data.csproj", "{2592D7C4-4587-4532-A56B-3D8BB252AE30}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casino.Wallet.App", "Casino.Wallet.App\Casino.Wallet.App.csproj", "{56A1C00B-F58F-4C19-8DE9-6908A68295C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A354EC2-03BF-4C26-9927-DC8933411F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A354EC2-03BF-4C26-9927-DC8933411F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A354EC2-03BF-4C26-9927-DC8933411F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A354EC2-03BF-4C26-9927-DC8933411F17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA33C988-B579-48CB-A95F-56CDF0A8C7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA33C988-B579-48CB-A95F-56CDF0A8C7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA33C988-B579-48CB-A95F-56CDF0A8C7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +31,14 @@ Global
 		{6EAD0504-167B-4008-AB08-E276A56D26A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EAD0504-167B-4008-AB08-E276A56D26A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EAD0504-167B-4008-AB08-E276A56D26A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2592D7C4-4587-4532-A56B-3D8BB252AE30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2592D7C4-4587-4532-A56B-3D8BB252AE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2592D7C4-4587-4532-A56B-3D8BB252AE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2592D7C4-4587-4532-A56B-3D8BB252AE30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A1C00B-F58F-4C19-8DE9-6908A68295C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A1C00B-F58F-4C19-8DE9-6908A68295C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A1C00B-F58F-4C19-8DE9-6908A68295C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A1C00B-F58F-4C19-8DE9-6908A68295C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
