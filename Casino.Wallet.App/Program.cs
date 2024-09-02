@@ -12,7 +12,7 @@ namespace Casino.Wallet.App
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
             var serviceProvider = ServiceRegistration.ConfigureServices(); 
             var commandProcessor = serviceProvider.GetService<CommandProcessor>();
-            var player = new Player { Id = 1, Balance = 0, Name = "John Doe" };
+            var player = new Player { Id = 1, Balance = 0, Name = "Betty" };
             var walletService = new WalletService(serviceProvider.GetService<TransactionRepository>(), player);
 
             while (true)

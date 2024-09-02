@@ -7,7 +7,7 @@ namespace Casino.Wallet.Core.Services
     {
         private IWalletService walletService;
 
-        public BetService(IWalletService walletService) 
+        public BetService(IWalletService walletService)
         {
             this.walletService = walletService;
         }

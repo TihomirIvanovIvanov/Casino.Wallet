@@ -13,16 +13,11 @@
 
         public Player Player { get; set; }
 
-        public decimal Balance
-        {
-            get => this.Player.Balance;
-            private set => this.Player.Balance = value;
-        }
+        public decimal WinAmount { get; set; }
 
         public void UpdateBalance(decimal amount)
         {
             this.Player.Balance += amount;
-            this.Balance = this.Player.Balance;
         }
 
         public decimal GetBalance() { return this.Player.Balance; }

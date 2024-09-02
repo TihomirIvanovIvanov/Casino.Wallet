@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Casino.Wallet.App\Casino.Wallet.App.csproj" />
     <ProjectReference Include="..\Casino.Wallet.Core\Casino.Wallet.Core.csproj" />
   </ItemGroup>
 

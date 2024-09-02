@@ -9,29 +9,29 @@ namespace Casino.Wallet.Data.Repositories
 
         public TransactionRepository()
         {
-            transactions = new Dictionary<int, Transaction>();
-            nextTransactionId = 1;
+            this.transactions = new Dictionary<int, Transaction>();
+            this.nextTransactionId = 1;
         }
 
         public void CreateTransaction(Transaction transaction)
         {
             transaction.Id = nextTransactionId++;
-            transactions.Add(transaction.Id, transaction);
+            this.transactions.Add(transaction.Id, transaction);
         }
 
         public List<Transaction> GetTransactions()
         {
-            return transactions.Values.ToList();
+            return this.transactions.Values.ToList();
         }
 
         public List<Transaction> GetAllByWalletId(int walletId)
         {
-            return transactions.Values.Where(t => t.WalletId == walletId).ToList();
+            return this.transactions.Values.Where(t => t.WalletId == walletId).ToList();
         }
 
         public Transaction GetById(int id)
         {
-            if (!transactions.TryGetValue(id, out Transaction? value))
+            if (!this.transactions.TryGetValue(id, out Transaction? value))
             {
                 throw new Exception($"Transaction with ID {id} does not exist.");
             }

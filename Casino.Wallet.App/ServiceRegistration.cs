@@ -1,4 +1,5 @@
 ﻿using Casino.Wallet.App.Commands;
+using Casino.Wallet.Common.Utilities;
 using Casino.Wallet.Core.Contracts;
 using Casino.Wallet.Core.Services;
 using Casino.Wallet.Data.Models;
@@ -13,6 +14,7 @@ namespace Casino.Wallet.App
         {
             return new ServiceCollection()
                 .AddScoped<Player>()
+                .AddTransient<IRandomNumberGenerator, RandomNumberGenerator>()
                 .AddTransient<TransactionRepository>()
                 .AddTransient<IWalletService, WalletService>()
                 .AddTransient<IBetService, BetService>()
